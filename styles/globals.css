@@ -2,8 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --geist-background: #fff;
+  --geist-foreground: #000;
+  --geist-accents-1: #fafafa;
+  --geist-accents-2: #eaeaea;
+  --geist-accents-3: #999;
+  --geist-accents-4: #888;
+  --geist-accents-5: #666;
+  --geist-accents-6: #444;
+  --geist-accents-7: #333;
+  --geist-accents-8: #111;
+  --geist-success: #0070f3;
+  --geist-error: #e00;
+  --geist-warning: #f5a623;
+  --geist-cyan: #50e3c2;
+  --geist-violet: #7928ca;
+  --geist-highlight: #ff0080;
+}
+
+.dark {
+  --geist-background: #000;
+  --geist-foreground: #fff;
+  --geist-accents-1: #111;
+  --geist-accents-2: #333;
+  --geist-accents-3: #444;
+  --geist-accents-4: #666;
+  --geist-accents-5: #888;
+  --geist-accents-6: #999;
+  --geist-accents-7: #eaeaea;
+  --geist-accents-8: #fafafa;
+}
+
 body {
-  font-family: var(--font-bengali), sans-serif;
-  background-color: theme('colors.background');
-  color: theme('colors.foreground');
+  background-color: var(--geist-background);
+  color: var(--geist-foreground);
 }

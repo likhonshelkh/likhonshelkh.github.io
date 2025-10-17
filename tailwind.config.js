@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,36 +9,48 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#fff',
-        foreground: '#000',
-        'accents-1': '#fafafa',
-        'accents-2': '#eaeaea',
-        'accents-3': '#999',
-        'accents-4': '#888',
-        'accents-5': '#666',
-        'accents-6': '#444',
-        'accents-7': '#333',
-        'accents-8': '#111',
-        success: '#0070f3',
-        error: '#e00',
-        warning: '#f5a623',
-        cyan: '#50e3c2',
-        violet: '#7928ca',
-        highlight: '#ff0080',
+        background: 'var(--geist-background)',
+        foreground: 'var(--geist-foreground)',
+        'accents-1': 'var(--geist-accents-1)',
+        'accents-2': 'var(--geist-accents-2)',
+        'accents-3': 'var(--geist-accents-3)',
+        'accents-4': 'var(--geist-accents-4)',
+        'accents-5': 'var(--geist-accents-5)',
+        'accents-6': 'var(--geist-accents-6)',
+        'accents-7': 'var(--geist-accents-7)',
+        'accents-8': 'var(--geist-accents-8)',
+        success: 'var(--geist-success)',
+        error: 'var(--geist-error)',
+        warning: 'var(--geist-warning)',
+        cyan: 'var(--geist-cyan)',
+        violet: 'var(--geist-violet)',
+        highlight: 'var(--geist-highlight)',
       },
       fontFamily: {
         bengali: ['var(--font-bengali)', 'system-ui', 'sans-serif'],
+        sans: ['Geist Sans', 'system-ui', 'sans-serif'],
+        mono: ['Geist Mono', 'monospace'],
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.accents-6'),
+            color: 'var(--geist-foreground)',
             a: {
-              color: theme('colors.success'),
+              color: 'var(--geist-success)',
               '&:hover': {
-                color: theme('colors.success'),
+                color: 'var(--geist-success)',
                 opacity: 0.8,
               },
+            },
+            'h1, h2, h3, h4, h5, h6': {
+              color: 'var(--geist-foreground)',
+            },
+            strong: {
+              color: 'var(--geist-foreground)',
+            },
+            blockquote: {
+              color: 'var(--geist-accents-6)',
+              borderLeftColor: 'var(--geist-accents-2)',
             },
           },
         },

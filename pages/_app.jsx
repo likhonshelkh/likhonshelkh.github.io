@@ -1,6 +1,7 @@
 import '../styles/globals.css';
-import { Noto_Sans_Bengali } from '@next/font/google';
 import Layout from '../components/Layout';
+import { ThemeProvider } from 'next-themes';
+import { Noto_Sans_Bengali } from '@next/font/google';
 
 const notoSansBengali = Noto_Sans_Bengali({
   subsets: ['bengali'],
@@ -10,11 +11,13 @@ const notoSansBengali = Noto_Sans_Bengali({
 
 function MyApp({ Component, pageProps }) {
   return (
-    <main className={`${notoSansBengali.variable} font-bengali`}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </main>
+    <ThemeProvider attribute="class">
+      <main className={`${notoSansBengali.variable} font-sans`}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </main>
+    </ThemeProvider>
   );
 }
 
