@@ -2,12 +2,12 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-8">
+    <footer className="bg-accents-1 text-accents-7 py-8 border-t border-accents-2">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-lg font-semibold">লিখন শেখ</p>
-            <p className="text-gray-400 text-sm">© {new Date().getFullYear()} সর্বস্বত্ব সংরক্ষিত</p>
+            <p className="text-lg font-semibold text-foreground">লিখন শেখ</p>
+            <p className="text-sm">© {new Date().getFullYear()} সর্বস্বত্ব সংরক্ষিত</p>
           </div>
 
           <div className="flex space-x-6">
@@ -16,7 +16,7 @@ export default function Footer() {
               href="https://t.me/likhonsheikh"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition"
+              className="text-accents-5 hover:text-foreground transition"
               aria-label="Telegram"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -29,7 +29,7 @@ export default function Footer() {
               href="https://github.com/likhonsheikh"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition"
+              className="text-accents-5 hover:text-foreground transition"
               aria-label="GitHub"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

@@ -16,7 +16,7 @@ export default function HomePage() {
           ওয়েব ডেভেলপমেন্ট, প্রোগ্রামিং এবং প্রযুক্তি সম্পর্কে আমার লেখা পড়ুন।
         </p>
         <Link href="/blog" legacyBehavior>
-          <a className="bg-primary hover:opacity-90 text-black font-bold py-3 px-6 rounded-lg transition">
+          <a className="bg-accents-2 hover:bg-accents-3 text-foreground font-bold py-3 px-6 rounded-lg transition">
             ব্লগ পড়ুন
           </a>
         </Link>

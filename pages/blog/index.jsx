@@ -11,10 +11,10 @@ export default function BlogIndexPage({ posts }) {
         ogType="website"
       />
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-8 text-center">সকল ব্লগ পোস্ট</h1>
+        <h1 className="text-4xl font-bold mb-8 text-center text-foreground">সকল ব্লগ পোস্ট</h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <div key={post.slug} className="border rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <div key={post.slug} className="bg-accents-1 border border-accents-2 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <Link href={`/blog/${post.slug}`} legacyBehavior>
                 <a>
                   {post.frontmatter.featuredImage && (

@@ -32,8 +32,8 @@ export default function PostPage({ source, frontmatter }) {
       )}
 
       <article className="prose prose-lg max-w-4xl mx-auto py-12 px-4">
-        {!frontmatter.banner && <h1 className="text-4xl font-bold mb-8">{frontmatter.title}</h1>}
-        <div className="text-gray-500 mb-8">
+        {!frontmatter.banner && <h1 className="text-4xl font-bold mb-8 text-foreground">{frontmatter.title}</h1>}
+        <div className="text-accents-5 mb-8">
           <span>{new Date(frontmatter.date).toLocaleDateString('bn-BD')}</span>
           <span className="mx-2">•</span>
           <span>{frontmatter.readTime} মিনিট পড়া</span>

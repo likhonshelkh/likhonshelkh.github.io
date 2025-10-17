@@ -8,15 +8,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#DCFF50',
-        secondary: '#7B61FF',
-        black: '#161616',
-        white: '#FFFFFF',
-        red: '#FF3D00',
-        orange: '#FF9900',
-        yellow: '#FFE600',
-        green: '#6FEC5B',
-        blue: '#00B2FF',
+        background: '#fff',
+        foreground: '#000',
+        'accents-1': '#fafafa',
+        'accents-2': '#eaeaea',
+        'accents-3': '#999',
+        'accents-4': '#888',
+        'accents-5': '#666',
+        'accents-6': '#444',
+        'accents-7': '#333',
+        'accents-8': '#111',
+        success: '#0070f3',
+        error: '#e00',
+        warning: '#f5a623',
+        cyan: '#50e3c2',
+        violet: '#7928ca',
+        highlight: '#ff0080',
       },
       fontFamily: {
         bengali: ['var(--font-bengali)', 'system-ui', 'sans-serif'],
@@ -24,11 +31,11 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.gray.700'),
+            color: theme('colors.accents-6'),
             a: {
-              color: theme('colors.secondary'),
+              color: theme('colors.success'),
               '&:hover': {
-                color: theme('colors.secondary'),
+                color: theme('colors.success'),
                 opacity: 0.8,
               },
             },
