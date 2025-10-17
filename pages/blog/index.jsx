@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import SEO from '../../components/SEO';
 import { getAllPosts } from '../../lib/mdx';
 import ShowMore from '../../components/ShowMore';
@@ -52,10 +53,12 @@ export default function BlogIndexPage({ posts }) {
               <Link href={`/blog/${post.slug}`} legacyBehavior>
                 <a>
                   {post.frontmatter.featuredImage && (
-                    <img
+                    <Image
                       src={post.frontmatter.featuredImage}
                       alt={post.frontmatter.title}
                       className="w-full h-48 object-cover"
+                      width={400}
+                      height={200}
                     />
                   )}
                   <div className="p-6">
