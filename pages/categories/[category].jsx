@@ -12,13 +12,13 @@ export default function CategoryPage({ category, posts }) {
   return (
     <>
       <SEO
-        title={`Posts in ${translatedCategory}`}
-        description={`A collection of posts in the ${translatedCategory} category.`}
+        title={`${translatedCategory} ক্যাটাগরির পোস্ট`}
+        description={`${translatedCategory} ক্যাটাগরির সকল পোস্টের সংগ্রহ।`}
         ogType="website"
       />
       <div className="container mx-auto px-4 py-12">
         <h1 className="text-4xl font-bold mb-8 text-center text-foreground">
-          ক্যাটাগরি: {translatedCategory}
+          {translatedCategory}
         </h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
