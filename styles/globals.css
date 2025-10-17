@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.nav-link {
+  @apply text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100;
+}
+
+.mobile-nav-overlay {
+  @apply fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-center justify-center space-y-6;
+}
+
 :root {
   --geist-background: #fff;
   --geist-foreground: #000;
