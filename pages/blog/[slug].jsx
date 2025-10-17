@@ -6,9 +6,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Skeleton from '../../components/Skeleton';
 import { useEffect, useState } from 'react';
+import MDXCodeBlock from '../../components/MDXCodeBlock';
 
 const components = {
   Image, // Make Next.js Image component available in MDX
+  pre: MDXCodeBlock,
 };
 
 export default function PostPage({ source, frontmatter }) {

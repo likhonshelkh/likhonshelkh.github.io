@@ -1,16 +1,31 @@
+import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
+import { Button } from '@geist-ui/core';
 
 const ThemeSwitcher = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  const currentTheme = resolvedTheme || theme || 'light';
+  const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
   return (
-    <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="px-3 py-1 rounded-md bg-accents-2 text-accents-6"
+    <Button
+      auto
+      size="small"
+      onClick={() => setTheme(nextTheme)}
       data-testid="theme-switcher"
     >
-      {theme === 'dark' ? 'Light' : 'Dark'} Mode
-    </button>
+      {nextTheme === 'dark' ? 'Dark' : 'Light'} Mode
+    </Button>
   );
 };
 
