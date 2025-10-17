@@ -1,6 +1,7 @@
 import React from 'react';
 import ThemeSwitcher from './ThemeSwitcher';
 import { Github, Send } from '@geist-ui/icons';
+import { Tooltip } from '@geist-ui/core';
 
 export default function Footer() {
   return (
@@ -12,29 +13,31 @@ export default function Footer() {
             <p className="text-sm">© {new Date().getFullYear()} সর্বস্বত্ব সংরক্ষিত</p>
           </div>
 
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center gap-4">
             <ThemeSwitcher />
-            {/* Telegram */}
-            <a
-              href="https://t.me/likhonsheikh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accents-5 hover:text-foreground transition"
-              aria-label="Telegram"
-            >
-              <Send size={24} />
-            </a>
+            <Tooltip text="Telegram" placement="top">
+              <a
+                href="https://t.me/likhonsheikh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accents-5 hover:text-foreground transition"
+                aria-label="Telegram"
+              >
+                <Send size={24} />
+              </a>
+            </Tooltip>
 
-            {/* GitHub */}
-            <a
-              href="https://github.com/likhonsheikh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accents-5 hover:text-foreground transition"
-              aria-label="GitHub"
-            >
-              <Github size={24} />
-            </a>
+            <Tooltip text="GitHub" placement="top">
+              <a
+                href="https://github.com/likhonsheikh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accents-5 hover:text-foreground transition"
+                aria-label="GitHub"
+              >
+                <Github size={24} />
+              </a>
+            </Tooltip>
           </div>
         </div>
       </div>
