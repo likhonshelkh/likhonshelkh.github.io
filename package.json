@@ -11,6 +11,7 @@
     "deploy": "npm run build && npm run export && git add out && git commit -m \"Deploy to GitHub Pages\" && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
+    "@geist-ui/core": "^2.3.8",
     "@geist-ui/icons": "^1.0.2",
     "@next/font": "^14.0.0",
     "gray-matter": "^4.0.3",
