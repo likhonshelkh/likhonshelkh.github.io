@@ -3,12 +3,40 @@ import { getPostBySlug, getPostSlugs } from '../../lib/mdx';
 import SEO from '../../components/SEO';
 import Banner from '../../components/Banner';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import Skeleton from '../../components/Skeleton';
+import { useEffect, useState } from 'react';
 
 const components = {
   Image, // Make Next.js Image component available in MDX
 };
 
 export default function PostPage({ source, frontmatter }) {
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (source) {
+      setLoading(false);
+    }
+  }, [source]);
+
+  if (loading || router.isFallback) {
+    return (
+      <div>
+        <Skeleton className="h-96 w-full" />
+        <div className="max-w-4xl mx-auto py-12 px-4">
+          <Skeleton className="h-12 w-3/4 mb-8" />
+          <Skeleton className="h-4 w-1/4 mb-8" />
+          <Skeleton className="h-6 w-full mb-4" />
+          <Skeleton className="h-6 w-full mb-4" />
+          <Skeleton className="h-6 w-5/6 mb-4" />
+          <Skeleton className="h-6 w-full mb-4" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <SEO
@@ -52,7 +80,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -64,5 +92,6 @@ export async function getStaticProps({ params }) {
       source,
       frontmatter,
     },
+    revalidate: 60,
   };
 }
