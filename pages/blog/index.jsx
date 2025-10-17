@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import SEO from '../../components/SEO';
 import { getAllPosts } from '../../lib/mdx';
 import ShowMore from '../../components/ShowMore';
@@ -52,14 +53,26 @@ export default function BlogIndexPage({ posts }) {
             <Link key={post.slug} href={`/blog/${post.slug}`} legacyBehavior>
               <a className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-success focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg">
                 <Card hoverable shadow className="bg-background border border-accents-2 h-full">
-                  {post.frontmatter.featuredImage && (
-                    <div className="w-full h-48 overflow-hidden">
-                      <img
+                  {post.frontmatter.featuredImage ? (
+                    <div className="relative w-full h-48 overflow-hidden">
+                      <Image
                         src={post.frontmatter.featuredImage}
                         alt={post.frontmatter.title}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                        className="object-cover"
+                        unoptimized={/^https?:\/\//.test(post.frontmatter.featuredImage)}
+                      />
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-black/40 to-transparent"
                       />
                     </div>
+                  ) : (
+                    <div
+                      aria-hidden
+                      className="h-48 bg-gradient-to-br from-neutral-800 via-neutral-900 to-black"
+                    />
                   )}
                   <Card.Content className="space-y-4">
                     <Text h3 className="text-foreground">
