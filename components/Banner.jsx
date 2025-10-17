@@ -7,10 +7,11 @@ export default function Banner({ image, title, subtitle, alt }) {
       <Image
         src={image}
         alt={alt || title}
-        layout="fill"
-        objectFit="cover"
-        quality={85}
+        fill
+        sizes="(max-width: 768px) 100vw, 1200px"
         priority
+        className="object-cover"
+        quality={85}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
         <div className="p-8 text-white">

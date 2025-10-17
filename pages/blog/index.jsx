@@ -4,6 +4,7 @@ import { getAllPosts } from '../../lib/mdx';
 import ShowMore from '../../components/ShowMore';
 import Skeleton from '../../components/Skeleton';
 import { useEffect, useState } from 'react';
+import { Card, Text } from '@geist-ui/core';
 
 export default function BlogIndexPage({ posts }) {
   const [loading, setLoading] = useState(true);
@@ -48,30 +49,35 @@ export default function BlogIndexPage({ posts }) {
         <h1 className="text-4xl font-bold mb-8 text-center text-foreground">সকল ব্লগ পোস্ট</h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <div key={post.slug} className="bg-background border border-accents-2 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-              <Link href={`/blog/${post.slug}`} legacyBehavior>
-                <a>
+            <Link key={post.slug} href={`/blog/${post.slug}`} legacyBehavior>
+              <a className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-success focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg">
+                <Card hoverable shadow className="bg-background border border-accents-2 h-full">
                   {post.frontmatter.featuredImage && (
-                    <img
-                      src={post.frontmatter.featuredImage}
-                      alt={post.frontmatter.title}
-                      className="w-full h-48 object-cover"
-                    />
-                  )}
-                  <div className="p-6">
-                    <h2 className="text-2xl font-bold mb-2 text-foreground">{post.frontmatter.title}</h2>
-                    <ShowMore>
-                      <p className="text-accents-6 mb-4">{post.frontmatter.excerpt}</p>
-                    </ShowMore>
-                    <div className="text-sm text-accents-5">
-                      <span>{new Date(post.frontmatter.date).toLocaleDateString('bn-BD')}</span>
-                      <span className="mx-2">•</span>
-                      <span>{post.frontmatter.readTime} মিনিট পড়া</span>
+                    <div className="w-full h-48 overflow-hidden">
+                      <img
+                        src={post.frontmatter.featuredImage}
+                        alt={post.frontmatter.title}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                  </div>
-                </a>
-              </Link>
-            </div>
+                  )}
+                  <Card.Content className="space-y-4">
+                    <Text h3 className="text-foreground">
+                      {post.frontmatter.title}
+                    </Text>
+                    <ShowMore>
+                      <Text p className="text-accents-6">
+                        {post.frontmatter.excerpt}
+                      </Text>
+                    </ShowMore>
+                  </Card.Content>
+                  <Card.Footer className="justify-between text-sm text-accents-5">
+                    <span>{new Date(post.frontmatter.date).toLocaleDateString('bn-BD')}</span>
+                    <span>{post.frontmatter.readTime} মিনিট পড়া</span>
+                  </Card.Footer>
+                </Card>
+              </a>
+            </Link>
           ))}
         </div>
       </div>

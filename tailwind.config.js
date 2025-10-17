@@ -28,8 +28,13 @@ module.exports = {
       },
       fontFamily: {
         bengali: ['var(--font-bengali)', 'system-ui', 'sans-serif'],
-        sans: ['Geist Sans', 'system-ui', 'sans-serif'],
-        mono: ['Geist Mono', 'monospace'],
+        sans: [
+          'var(--font-geist-sans)',
+          'var(--font-bengali)',
+          'system-ui',
+          'sans-serif',
+        ],
+        mono: ['var(--font-geist-mono)', 'monospace'],
       },
       typography: (theme) => ({
         DEFAULT: {
