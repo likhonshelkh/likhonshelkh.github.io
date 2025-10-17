@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Skeleton from '../../components/Skeleton';
 import { useEffect, useState } from 'react';
+import CategoryTranslator from '../../components/CategoryTranslator';
 
 const components = {
   Image, // Make Next.js Image component available in MDX
@@ -65,6 +66,8 @@ export default function PostPage({ source, frontmatter }) {
           <span>{new Date(frontmatter.date).toLocaleDateString('bn-BD')}</span>
           <span className="mx-2">•</span>
           <span>{frontmatter.readTime} মিনিট পড়া</span>
+          <span className="mx-2">•</span>
+          <CategoryTranslator category={frontmatter.category} />
         </div>
         <MDXRemote {...source} components={components} />
       </article>

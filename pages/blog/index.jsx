@@ -5,6 +5,7 @@ import { getAllPosts } from '../../lib/mdx';
 import ShowMore from '../../components/ShowMore';
 import Skeleton from '../../components/Skeleton';
 import { useEffect, useState } from 'react';
+import CategoryTranslator from '../../components/CategoryTranslator';
 
 export default function BlogIndexPage({ posts }) {
   const [loading, setLoading] = useState(true);
@@ -70,6 +71,8 @@ export default function BlogIndexPage({ posts }) {
                       <span>{new Date(post.frontmatter.date).toLocaleDateString('bn-BD')}</span>
                       <span className="mx-2">•</span>
                       <span>{post.frontmatter.readTime} মিনিট পড়া</span>
+                      <span className="mx-2">•</span>
+                      <CategoryTranslator category={post.frontmatter.category} />
                     </div>
                   </div>
                 </a>
